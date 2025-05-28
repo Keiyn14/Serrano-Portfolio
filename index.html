@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kenneth Miles Serrano | Professional Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom CSS for animations and effects */
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-link::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #000;
+            transition: width .3s;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        
+        /* Custom black and white theme */
+        body {
+            background-color: #f8f8f8;
+            color: #333;
+        }
+        
+        .hero-bg {
+            background-color: #000;
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50%;
+            height: 2px;
+            background-color: #000;
+        }
+        
+        .niche-section {
+            border-bottom: 1px solid #e5e7eb;
+            padding: 80px 0;
+        }
+        
+        .niche-section:nth-child(even) {
+            background-color: #f3f4f6;
+        }
+        
+        .niche-section:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body class="font-sans">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-md z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#" class="text-xl font-bold text-gray-900 flex items-center">
+                        <i class="fas fa-user-tie text-gray-900 mr-2"></i>
+                        <span>MILES</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link text-gray-700 hover:text-black transition">Home</a>
+                    <a href="#about" class="nav-link text-gray-700 hover:text-black transition">About</a>
+                    <a href="#virtual-assistant" class="nav-link text-gray-700 hover:text-black transition">Virtual Assistant</a>
+                    <a href="#graphic-designer" class="nav-link text-gray-700 hover:text-black transition">Graphic Designer</a>
+                    <a href="#video-editor" class="nav-link text-gray-700 hover:text-black transition">Video Editor</a>
+                    <a href="#data-entry" class="nav-link text-gray-700 hover:text-black transition">Data Entry</a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-black transition">Contact</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-black">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-black hover:bg-gray-100">Home</a>
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-black hover:bg-gray-100">About</a>
+                <a href="#virtual-assistant" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-black hover:bg-gray-100">Virtual Assistant</a>
+                <a href="#graphic-designer" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-black hover:bg-gray-100">Graphic Designer</a>
+                <a href="#video-editor" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-black hover:bg-gray-100">Video Editor</a>
+                <a href="#data-entry" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-black hover:bg-gray-100">Data Entry</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-black hover:bg-gray-100">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg text-white pt-32 pb-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex items-center justify-between">
+                <div class="md:w-1/2 mb-10 md:mb-0 animate-fade-in">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4">Hi, I'm <span class="text-gray-300">MILES</span></h1>
+                    <p class="text-xl mb-6 opacity-90">Professional Virtual Assistant & Creative Specialist</p>
+                    <p class="mb-8 text-lg opacity-80">Delivering high-quality administrative support, stunning designs, engaging videos, and accurate data solutions for your business needs.</p>
+                    <div class="flex space-x-4">
+                        <a href="#contact" class="bg-white text-black px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition shadow-lg">Hire Me</a>
+                        <a href="#virtual-assistant" class="border-2 border-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-black transition">View Services</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center animate-fade-in delay-200">
+                    <div class="relative">
+                        <div class="w-64 h-64 md:w-80 md:h-80 bg-gray-700 rounded-full overflow-hidden shadow-2xl">
+                            <!-- Replace with your image -->
+                            <img src="images/img2.jpg" 
+                                 alt="Professional Photo" class="w-full h-full object-cover">
+                        </div>
+                        <div class="absolute -bottom-5 -right-5 bg-gray-300 text-black px-4 py-2 rounded-full font-bold shadow-lg">
+                            <span>5+ Years Experience</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10 animate-fade-in">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6 section-title">About Me</h2>
+                    <p class="text-gray-600 mb-4">I'm Kenneth Miles Serrano, a versatile professional with expertise in multiple domains including virtual assistance, graphic design, video editing, and data management.</p>
+                    <p class="text-gray-600 mb-6">With over 5 years of experience, I've helped numerous businesses streamline their operations, enhance their brand identity, and create compelling visual content that engages their audience.</p>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-gray-800 mr-2"></i>
+                            <span class="text-gray-600">Detail-oriented</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-gray-800 mr-2"></i>
+                            <span class="text-gray-600">Creative thinker</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-gray-800 mr-2"></i>
+                            <span class="text-gray-600">Tech-savvy</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-gray-800 mr-2"></i>
+                            <span class="text-gray-600">Problem solver</span>
+                        </div>
+                    </div>
+                    
+                    <p class="text-gray-600">When I'm not working, you can find me exploring new design trends, learning new software tools, or enjoying a good cup of coffee while brainstorming creative solutions for my clients.</p>
+                </div>
+                
+                <div class="md:w-1/2 animate-fade-in delay-200">
+                    <div class="bg-gray-100 p-8 rounded-xl shadow-lg">
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">My Skills</h3>
+                        
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-700">Virtual Assistance</span>
+                                    <span class="text-gray-700">95%</span>
+                                </div>
+                                <div class="w-full bg-gray-300 rounded-full h-2">
+                                    <div class="bg-black h-2 rounded-full" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-700">Graphic Design</span>
+                                    <span class="text-gray-700">90%</span>
+                                </div>
+                                <div class="w-full bg-gray-300 rounded-full h-2">
+                                    <div class="bg-black h-2 rounded-full" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-700">Video Editing</span>
+                                    <span class="text-gray-700">85%</span>
+                                </div>
+                                <div class="w-full bg-gray-300 rounded-full h-2">
+                                    <div class="bg-black h-2 rounded-full" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-700">Data Management</span>
+                                    <span class="text-gray-700">92%</span>
+                                </div>
+                                <div class="w-full bg-gray-300 rounded-full h-2">
+                                    <div class="bg-black h-2 rounded-full" style="width: 92%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Virtual Assistant Section -->
+    <section id="virtual-assistant" class="niche-section">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-fade-in">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4 section-title">Virtual Assistant Services</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Professional administrative support to streamline your business operations and increase productivity.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+                <!-- Calendar Management -->
+                <div class="service-card bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in delay-100">
+                    <div class="text-gray-800 mb-4">
+                        <i class="fas fa-calendar-alt text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Calendar Management</h3>
+                    <p class="text-gray-600 mb-4">Efficient scheduling and time management to keep your appointments organized and conflict-free.</p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-800 mt-1 mr-2"></i>
+                            <span>Appointment scheduling</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-800 mt-1 mr-2"></i>
+                            <span>Meeting coordination</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-800 mt-1 mr-2"></i>
+                            <span>Reminder setup</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-800 mt-1 mr-2"></i>
+                            <span>Time zone management</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Research & Data Gathering -->
+                <div class="service-card bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in delay-200">
+                    <div class="text-gray-800 mb-4">
+                        <i class="fas fa-search text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Research & Data Gathering</h3>
+                    <p class="text-gray-600 mb-4">Comprehensive research services to provide you with accurate and relevant information.</p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-800 mt-1 mr-2"></i>
+                            <span>Market research</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-800 mt-1 mr-2"></i>
+                            <span>Competitor analysis</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-800 mt-1 mr-2"></i>
+                            <span>Data collection</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-800 mt-1 mr-2"></i>
+                            <span>Report preparation</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Email Handling -->
+                <div class="service-card bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in delay-300">
+                    <div class="text-gray-800 mb-4">
+                        <i class="fas fa-envelope text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Email Handling</h3>
+                    <p class="text-gray-600 mb-4">Professional email management to keep your inbox organized and responsive.</p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-800 mt-1 mr-2"></i>
+                            <span>Inbox organization</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-800 mt-1 mr-2"></i>
+                            <span>Response drafting</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-800 mt-1 mr-2"></i>
+                            <span>Priority filtering</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-800 mt-1 mr-2"></i>
+                            <span>Spam management</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Content Writing -->
+                <div class="service-card bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in delay-400">
+                    <div class="text-gray-800 mb-4">
+                        <i class="fas fa-pen-fancy text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Content Writing</h3>
+                    <p class="text-gray-600 mb-4">Engaging and professional content creation for your business needs.</p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-800 mt-1 mr-2"></i>
+                            <span>Business correspondence</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-800 mt-1 mr-2"></i>
+                            <span>Blog articles</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-800 mt-1 mr-2"></i>
+                            <span>Social media content</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-800 mt-1 mr-2"></i>
+                            <span>Website copy</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Graphic Designer Section -->
+    <section id="graphic-designer" class="niche-section">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-fade-in">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4 section-title">Graphic Design Services</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Creative visual solutions that communicate your brand's message effectively.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+                <!-- T-shirt Design -->
+                <div class="service-card bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in delay-100">
+                    <div class="text-gray-800 mb-4">
+                        <i class="fas fa-tshirt text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">T-shirt Design</h3>
+                    <p class="text-gray-600 mb-4">Unique and trendy t-shirt designs that stand out in the market.</p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-800 mt-1 mr-2"></i>
+                            <span>Custom illustrations</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-800 mt-1 mr-2"></i>
+                            <span>Typography designs</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-800 mt-1 mr-2"></i>
+                            <span>Vector artwork</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-800 mt-1 mr-2"></i>
+                            <span>Print-ready files</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Logo Design -->
+                <div class="service-card bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in delay-200">
+                    <div class="text-gray-800 mb-4">
+                        <i class="fas fa-icons text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Logo Design</h3>
+                    <p class="text-gray-600 mb-4">Memorable brand identities that make a lasting impression.</p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-800 mt-1 mr-2"></i>
+                            <span>Brand identity</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-800 mt-1 mr-2"></i>
+                            <span>Custom typography</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-800 mt-1 mr-2"></i>
+                            <span>Multiple concepts</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-800 mt-1 mr-2"></i>
+                            <span>Full file formats</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Social Media Designs -->
+                <div class="service-card bg-white rounded-xl p-8 shadow-lg hover:scroll-xtransition-all duration-300 animate-fade-in delay-300">
+                    <div class="text-gray-800 mb-4">
+                        <i class="fas fa-share-alt text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Social Media Designs</h3>
+                    <p class="text-gray-600 mb-4">Eye-catching visuals optimized for social media platforms.</p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-800 mt-1 mr-2"></i>
+                            <span>Facebook posts & covers</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-800 mt-1 mr-2"></i>
+                            <span>Instagram stories & posts</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-800 mt-1 mr-2"></i>
+                            <span>LinkedIn banners</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-800 mt-1 mr-2"></i>
+                            <span>TikTok thumbnails</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Image Vectoring -->
+                <div class="service-card bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in delay-400">
+                    <div class="text-gray-800 mb-4">
+                        <i class="fas fa-vector-square text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Image Vectoring</h3>
+                    <p class="text-gray-600 mb-4">High-quality vector conversions for logos and artwork.</p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-800 mt-1 mr-2"></i>
+                            <span>Logo vectorization</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-800 mt-1 mr-2"></i>
+                            <span>Image tracing</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-800 mt-1 mr-2"></i>
+                            <span>Scalable graphics</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-800 mt-1 mr-2"></i>
+                            <span>File format conversion</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Editor Section -->
+    <section id="video-editor" class="niche-section">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-fade-in">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4 section-title">Video Editing Services</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Engaging video content that captures attention and tells your story.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Short Form Videos -->
+                <div class="service-card bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in delay-100">
+                    <div class="text-gray-800 mb-4">
+                        <i class="fas fa-film text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Short Form Videos</h3>
+                    <p class="text-gray-600 mb-4">Attention-grabbing short videos optimized for social media platforms.</p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-800 mt-1 mr-2"></i>
+                            <span>Social media clips</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-800 mt-1 mr-2"></i>
+                            <span>TikTok/Reels/Shorts</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-800 mt-1 mr-2"></i>
+                            <span>Quick promotions</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-800 mt-1 mr-2"></i>
+                            <span>High engagement edits</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Long Form Videos -->
+                <div class="service-card bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in delay-200">
+                    <div class="text-gray-800 mb-4">
+                        <i class="fas fa-photo-video text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Long Form Videos</h3>
+                    <p class="text-gray-600 mb-4">Comprehensive video productions for detailed storytelling.</p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-800 mt-1 mr-2"></i>
+                            <span>Documentaries</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-800 mt-1 mr-2"></i>
+                            <span>Training videos</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-800 mt-1 mr-2"></i>
+                            <span>Corporate videos</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-800 mt-1 mr-2"></i>
+                            <span>Event recordings</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Entry Section -->
+    <section id="data-entry" class="niche-section">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-fade-in">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4 section-title">Data Entry Services</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Accurate and efficient data management to keep your information organized.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Data Management -->
+                <div class="service-card bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in delay-100">
+                    <div class="text-gray-800 mb-4">
+                        <i class="fas fa-database text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Data Management</h3>
+                    <p class="text-gray-600 mb-4">Organized and structured data handling for your business needs.</p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-800 mt-1 mr-2"></i>
+                            <span>Data organization</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-800 mt-1 mr-2"></i>
+                            <span>Database maintenance</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-800 mt-1 mr-2"></i>
+                            <span>Data cleaning</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-800 mt-1 mr-2"></i>
+                            <span>Data migration</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Analysis and Report -->
+                <div class="service-card bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in delay-200">
+                    <div class="text-gray-800 mb-4">
+                        <i class="fas fa-chart-bar text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Analysis and Report</h3>
+                    <p class="text-gray-600 mb-4">Insightful data analysis and comprehensive reporting.</p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-800 mt-1 mr-2"></i>
+                            <span>Data interpretation</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-800 mt-1 mr-2"></i>
+                            <span>Trend analysis</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-800 mt-1 mr-2"></i>
+                            <span>Statistical reports</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-800 mt-1 mr-2"></i>
+                            <span>Visual presentations</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Spreadsheet Organization -->
+                <div class="service-card bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in delay-300">
+                    <div class="text-gray-800 mb-4">
+                        <i class="fas fa-file-excel text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Spreadsheet Organization</h3>
+                    <p class="text-gray-600 mb-4">Efficient spreadsheet solutions for your business data.</p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-800 mt-1 mr-2"></i>
+                            <span>Data entry</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-800 mt-1 mr-2"></i>
+                            <span>Formula implementation</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-800 mt-1 mr-2"></i>
+                            <span>Template creation</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-800 mt-1 mr-2"></i>
+                            <span>Automation setup</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4 section-title">Get In Touch</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Ready to discuss your project? Fill out the form below and I'll get back to you within 24 hours.</p>
+            </div>
+            
+            <div class="md:flex">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-8">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Contact Information</h3>
+                    <p class="text-gray-600 mb-6">Feel free to reach out through any of these channels:</p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-gray-200 rounded-lg p-3">
+                                <i class="fas fa-envelope text-gray-800"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-base font-medium text-gray-900">Email</h4>
+                                <p class="text-gray-600">serranokennethmiles@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-gray-200 rounded-lg p-3">
+                                <i class="fab fa-whatsapp text-gray-800"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-base font-medium text-gray-900">WhatsApp</h4>
+                                <p class="text-gray-600">+639202295703</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Connect With Me</h3>
+                        <div class="flex space-x-4">
+                            <a href="#" class="flex items-center justify-center w-10 h-10 rounded-full bg-gray-200 text-gray-800 hover:bg-gray-300">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="flex items-center justify-center w-10 h-10 rounded-full bg-gray-200 text-gray-800 hover:bg-gray-300">
+                                <i class="fab fa-tiktok"></i>
+                            </a>
+                            <a href="#" class="flex items-center justify-center w-10 h-10 rounded-full bg-gray-200 text-gray-800 hover:bg-gray-300">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="first-name" class="block text-sm font-medium text-gray-700 mb-1">First Name</label>
+                                <input type="text" id="first-name" name="first-name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-gray-500 focus:border-gray-500" placeholder="John">
+                            </div>
+                            <div>
+                                <label for="last-name" class="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
+                                <input type="text" id="last-name" name="last-name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-gray-500 focus:border-gray-500" placeholder="Doe">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-gray-500 focus:border-gray-500" placeholder="your@email.com">
+                        </div>
+                        
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-gray-500 focus:border-gray-500" placeholder="+1 (555) 123-4567">
+                        </div>
+                        
+                        <div>
+                            <label for="service" class="block text-sm font-medium text-gray-700 mb-1">Service Needed</label>
+                            <select id="service" name="service" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-gray-500 focus:border-gray-500">
+                                <option value="">Select a service</option>
+                                <option value="virtual-assistant">Virtual Assistant</option>
+                                <option value="graphic-design">Graphic Design</option>
+                                <option value="video-editing">Video Editing</option>
+                                <option value="data-entry">Data Entry</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Project Details</label>
+                            <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-gray-500 focus:border-gray-500" placeholder="Tell me about your project..."></textarea>
+                        </div>
+                        
+                        <div>
+                            <button type="submit" class="w-full flex justify-center items-center px-6 py-4 border border-transparent rounded-full shadow-sm text-base font-medium text-white bg-black hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+                                Send Message
+                                <i class="fas fa-paper-plane ml-2"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex md:justify-between">
+                <div class="mb-8 md:mb-0">
+                    <a href="#" class="text-xl font-bold text-white flex items-center">
+                        <i class="fas fa-user-tie text-gray-300 mr-2"></i>
+                        <span>MILES</span>
+                    </a>
+                    <p class="mt-4 text-gray-400 max-w-md">Providing exceptional virtual assistance, creative design, video production, and data management services to help businesses thrive.</p>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+                    <div>
+                        <h3 class="text-sm font-semibold text-gray-300 tracking-wider uppercase mb-4">Services</h3>
+                        <ul class="space-y-3">
+                            <li><a href="#virtual-assistant" class="text-gray-400 hover:text-white">Virtual Assistant</a></li>
+                            <li><a href="#graphic-designer" class="text-gray-400 hover:text-white">Graphic Design</a></li>
+                            <li><a href="#video-editor" class="text-gray-400 hover:text-white">Video Editing</a></li>
+                            <li><a href="#data-entry" class="text-gray-400 hover:text-white">Data Entry</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-sm font-semibold text-gray-300 tracking-wider uppercase mb-4">Quick Links</h3>
+                        <ul class="space-y-3">
+                            <li><a href="#home" class="text-gray-400 hover:text-white">Home</a></li>
+                            <li><a href="#about" class="text-gray-400 hover:text-white">About</a></li>
+                            <li><a href="#virtual-assistant" class="text-gray-400 hover:text-white">Virtual Assistant</a></li>
+                            <li><a href="#graphic-designer" class="text-gray-400 hover:text-white">Graphic Designer</a></li>
+                            <li><a href="#video-editor" class="text-gray-400 hover:text-white">Video Editor</a></li>
+                            <li><a href="#data-entry" class="text-gray-400 hover:text-white">Data Entry</a></li>
+                            <li><a href="#contact" class="text-gray-400 hover:text-white">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-sm font-semibold text-gray-300 tracking-wider uppercase mb-4">Connect</h3>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-gray-400 hover:text-white">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-white">
+                                <i class="fab fa-tiktok"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-white">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 pt-8 border-t border-gray-800">
+                <p class="text-gray-400 text-sm text-center">&copy; 2025 MILES. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-black text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Back to Top Button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
