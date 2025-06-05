@@ -14,6 +14,34 @@
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
         }
         
+        #graphic-designer .service-card,
+        #video-editor .service-card {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        #graphic-designer .service-card::after,
+        #video-editor .service-card::after {
+            content: 'Click to view samples';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            background: black;
+            color: white;
+            padding: 5px 0;
+            font-size: 12px;
+            border-radius: 0 0 10px 10px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        #graphic-designer .service-card:hover::after,
+        #video-editor .service-card:hover::after {
+            opacity: 1;
+        }
+        
         .nav-link::after {
             content: '';
             display: block;
@@ -77,6 +105,19 @@
         
         .niche-section:last-child {
             border-bottom: none;
+        }
+
+        /* Modal styles */
+        #work-samples-modal {
+            transition: opacity 0.3s ease;
+        }
+        
+        .work-sample img {
+            transition: transform 0.3s ease;
+        }
+        
+        .work-sample:hover img {
+            transform: scale(1.05);
         }
     </style>
 </head>
@@ -358,7 +399,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 animate-fade-in">
                 <h2 class="text-3xl font-bold text-gray-900 mb-4 section-title">Graphic Design Services</h2>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Creative visual solutions that communicate your brand's message effectively.</p>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Creative visual solutions that communicate your brand's message effectively. <span class="text-black font-medium">(Click any service to view samples)</span></p>
             </div>
      
             <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
@@ -478,7 +519,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 animate-fade-in">
                 <h2 class="text-3xl font-bold text-gray-900 mb-4 section-title">Video Editing Services</h2>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Engaging video content that captures attention and tells your story.</p>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Engaging video content that captures attention and tells your story. <span class="text-black font-medium">(Click any service to view samples)</span></p>
             </div>
             
             <div class="grid md:grid-cols-2 gap-8">
@@ -794,6 +835,37 @@
         </div>
     </footer>
 
+    <!-- Work Samples Modal -->
+    <div id="work-samples-modal" class="fixed inset-0 z-50 hidden overflow-y-auto">
+        <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <!-- Background overlay -->
+            <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+                <div class="absolute inset-0 bg-black opacity-75"></div>
+            </div>
+            
+            <!-- Modal container -->
+            <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-3xl sm:w-full">
+                <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <div class="sm:flex sm:items-start">
+                        <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left w-full">
+                            <h3 class="text-lg leading-6 font-medium text-gray-900 mb-4" id="modal-title">Work Samples</h3>
+                            <div class="mt-2">
+                                <div class="grid grid-cols-2 gap-4" id="work-samples-container">
+                                    <!-- Work samples will be inserted here via JS -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                    <button type="button" id="close-modal" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-black text-base font-medium text-white hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Back to Top Button -->
     <button id="back-to-top" class="fixed bottom-8 right-8 bg-black text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300">
         <i class="fas fa-arrow-up"></i>
@@ -828,6 +900,104 @@
             });
         });
         
+        // Work samples data
+        const workSamples = {
+            'tshirt': [
+                {type: 'image', name: 'T-Shirt Design 1', url: 'images/TD1.png'},
+                {type: 'image', name: 'T-Shirt Design 2', url: 'images/TD2.jpg'},
+                {type: 'image', name: 'T-Shirt Design 3', url: 'images/TD3.png'},
+                {type: 'image', name: 'T-Shirt Design 4', url: 'images/TD4.png'}
+            ],
+            'logo': [
+                {type: 'image', name: 'Logo Design 1', url: 'images/LGD1.jpg'},
+                {type: 'image', name: 'Logo Design 2', url: 'images/LGD2.png'},
+                {type: 'image', name: 'Logo Design 3', url: 'images/LGD3.png'}
+            ],
+            'social-media': [
+                {type: 'image', name: 'Social Post 1', url: 'images/SMD1.jpg'},
+                {type: 'image', name: 'Social Post 2', url: 'images/SMD2.png'},
+                {type: 'image', name: 'Social Post 3', url: 'images/SMD3.png'}
+            ],
+            'vector': [
+                {type: 'image', name: 'Vector Work 1', url: 'images/VD1.png'},
+                {type: 'image', name: 'Vector Work 2', url: 'images/VD2.png'}
+            ],
+            'short-videos': [
+                {type: 'video', name: 'Short Video 1', url: 'vids/SFV1.mp4', poster: 'vids/thumbnails/SFV1.jpg'},
+                {type: 'video', name: 'Short Video 2', url: 'vids/SFV2.mp4', poster: 'vids/thumbnails/SFV2.jpg'}
+            ],
+            'long-videos': [
+                {type: 'video', name: 'Long Video 1', url: 'vids/LFV1.mp4', poster: 'vids/thumbnails/LFV1.jpg'}
+            ]
+        };
+
+        // Modal handling
+        const modal = document.getElementById('work-samples-modal');
+        const closeModal = document.getElementById('close-modal');
+        const workSamplesContainer = document.getElementById('work-samples-container');
+        
+        // Map of card header to sample type
+        const serviceMap = {
+            'T-shirt Design': 'tshirt',
+            'Logo Design': 'logo',
+            'Social Media Designs': 'social-media',
+            'Image Vectoring': 'vector',
+            'Short Form Videos': 'short-videos',
+            'Long Form Videos': 'long-videos'
+        };
+
+        // Open modal with appropriate samples
+        document.querySelectorAll('.service-card').forEach(card => {
+            const header = card.querySelector('h3').textContent;
+            const sampleType = serviceMap[header];
+            
+            if (sampleType) {
+                card.style.cursor = 'pointer';
+                card.addEventListener('click', () => {
+                    const samples = workSamples[sampleType] || [];
+                    
+                    workSamplesContainer.innerHTML = samples.map(sample => {
+                        if (sample.type === 'video') {
+                            return `
+                                <div class="work-sample">
+                                    <video controls poster="${sample.poster}" class="w-full h-auto rounded shadow">
+                                        <source src="${sample.url}" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <p class="text-sm text-center mt-2">${sample.name}</p>
+                                </div>
+                            `;
+                        } else {
+                            return `
+                                <div class="work-sample">
+                                    <img src="${sample.url}" alt="${sample.name}" class="w-full h-auto rounded shadow">
+                                    <p class="text-sm text-center mt-2">${sample.name}</p>
+                                </div>
+                            `;
+                        }
+                    }).join('');
+                    
+                    document.getElementById('modal-title').textContent = `${header} Samples`;
+                    modal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                });
+            }
+        });
+        
+        // Close modal
+        closeModal.addEventListener('click', () => {
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Close modal when clicking outside content
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
